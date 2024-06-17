@@ -1,0 +1,12 @@
+body {
+    background-color: grey;
+}
+
+.btn-pink {
+    background-color: #FFC0CB; /* Rose Pink */
+    color: white;
+}
+
+.btn-pink:hover {
+    background-color: #FFB6C1; /* Lighter shade on hover */
+}
