@@ -8,12 +8,41 @@ body {
 }
 
 .btn-pink {
-    background-color: rgb(2, 92, 83); /* a shade within the torquoise blue rgb */
+    background-color: rgb(2, 92, 83); /* a shade within the turquoise blue rgb */
     color: white;
+    transition: all 5s ease-out; /* Smooth transition */
+    position: relative; /* Relative positioning for pseudo-elements */
+    overflow: hidden; /* Hide overflow to manage pseudo-elements properly */
 }
 
-.btn-pink:hover {
-    background-color: #e78291; /* Lighter shade on hover */
+.btn-pink#not-interested::before,
+.btn-pink#accept-invitation::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.5rem;
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+}
+
+.btn-pink#not-interested:hover::before,
+.btn-pink#not-interested:active::before {
+    content: "😢"; /* Sad emoji */
+    opacity: 1;
+}
+
+.btn-pink#accept-invitation:hover::before,
+.btn-pink#accept-invitation:active::before {
+    content: "😊"; /* Smiley face emoji */
+    opacity: 1;
+}
+
+.btn-pink:hover,
+.btn-pink:active {
+    background-color: transparent; /* Transparent background */
+    color: transparent; /* Transparent text */
 }
 
 .mb-5 {
