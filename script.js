@@ -7,5 +7,5 @@ document.getElementById('not-interested').addEventListener('click', function() {
 });
 
 document.getElementById('accept-invitation').addEventListener('click', function() {
-    window.location.href = 'https://chat.whatsapp.com/IPLvbVa47qUIBSmVzH5u9l';
+    window.location.href = 'https://chat.whatsapp.com/I18hDa06Muv9MSKPlehHUx';
 });

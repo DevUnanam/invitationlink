@@ -1,12 +1,19 @@
 body {
-    background-color: grey;
+    background: url('backag.png') no-repeat center center fixed;
+    background-size: 100% auto;
+    color: white;
 }
 
 .btn-pink {
-    background-color: #FFC0CB; /* Rose Pink */
+    background-color: #a80722; /* Rose Pink */
     color: white;
 }
 
 .btn-pink:hover {
     background-color: #FFB6C1; /* Lighter shade on hover */
+}
+
+.mb-5{
+    background-color: rgb(3, 104, 104);
+    border-radius: 5%;
 }
