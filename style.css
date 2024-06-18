@@ -8,12 +8,12 @@ body {
 }
 
 .btn-pink {
-    background-color: #a80722; /* Rose Pink */
+    background-color: rgb(2, 92, 83); /* a shade within the torquoise blue rgb */
     color: white;
 }
 
-.btn-ppink:hover {
-    background-color: #FFB6C1; /* Lighter shade on hover */
+.btn-pink:hover {
+    background-color: #e78291; /* Lighter shade on hover */
 }
 
 .mb-5 {
