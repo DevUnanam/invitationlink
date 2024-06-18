@@ -1,7 +1,10 @@
 body {
     background: url('backag.png') no-repeat center center fixed;
-    background-size: 100% auto;
+    background-size: cover; /* Ensures the background covers the entire screen */
     color: white;
+    margin: 0; /* Ensure no margin around the body */
+    padding: 0; /* Ensure no padding around the body */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 .btn-pink {
@@ -9,11 +12,25 @@ body {
     color: white;
 }
 
-.btn-pink:hover {
+.btn-ppink:hover {
     background-color: #FFB6C1; /* Lighter shade on hover */
 }
 
-.mb-5{
+.mb-5 {
     background-color: rgb(3, 104, 104);
     border-radius: 5%;
+    padding: 10px; /* Add padding for better spacing */
+}
+
+/* Ensure the text is readable on all devices */
+h1 {
+    font-size: 1.5rem; /* Adjust the font size for better readability */
+    padding: 15px; /* Add padding for better spacing */
+}
+
+/* Media query to adjust the background size for smaller devices */
+@media (max-width: 768px) {
+    body {
+        background-size: cover; /* Ensure the background covers the entire screen on smaller devices */
+    }
 }
