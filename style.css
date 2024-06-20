@@ -1,65 +1,70 @@
 body {
     background: url('backag.png') no-repeat center center fixed;
-    background-size: cover; /* Ensures the background covers the entire screen */
+    background-size: cover;
     color: white;
-    margin: 0; /* Ensure no margin around the body */
-    padding: 0; /* Ensure no padding around the body */
-    overflow-x: hidden; /* Prevent horizontal scrolling */
+    margin: 0;
+    padding: 0;
+    /* overflow-x: hidden; */
 }
 
 .btn-pink {
-    background-color: rgb(2, 92, 83); /* a shade within the turquoise blue rgb */
+    background-color: rgb(2, 92, 83);
     color: white;
-    transition: all 5s ease-out; /* Smooth transition */
-    position: relative; /* Relative positioning for pseudo-elements */
-    overflow: hidden; /* Hide overflow to manage pseudo-elements properly */
+    transition: all 0.5s ease-out;
+    position: relative;
+    overflow: hidden;
 }
 
-.btn-pink#not-interested::before,
-.btn-pink#accept-invitation::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+h1 {
     font-size: 1.5rem;
-    opacity: 0;
-    transition: opacity 0.3s ease-out;
-}
-
-.btn-pink#not-interested:hover::before,
-.btn-pink#not-interested:active::before {
-    content: "😢"; /* Sad emoji */
-    opacity: 1;
-}
-
-.btn-pink#accept-invitation:hover::before,
-.btn-pink#accept-invitation:active::before {
-    content: "😊"; /* Smiley face emoji */
-    opacity: 1;
-}
-
-.btn-pink:hover,
-.btn-pink:active {
-    background-color: transparent; /* Transparent background */
-    color: transparent; /* Transparent text */
-}
-
-.mb-5 {
+    padding: 10px;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 0.15em solid orange;
+    margin-bottom: 1rem;
     background-color: rgb(3, 104, 104);
     border-radius: 5%;
-    padding: 10px; /* Add padding for better spacing */
 }
 
-/* Ensure the text is readable on all devices */
-h1 {
-    font-size: 1.5rem; /* Adjust the font size for better readability */
-    padding: 15px; /* Add padding for better spacing */
+@keyframes typing {
+    from { width: 0; }
+    to { width: 10%; }
 }
 
-/* Media query to adjust the background size for smaller devices */
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: orange; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.buttons-container {
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+    animation-delay: 4s; /* Start after typing animation */
+}
+
+.btn {
+    min-width: 200px;
+    max-width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 @media (max-width: 768px) {
-    body {
-        background-size: cover; /* Ensure the background covers the entire screen on smaller devices */
+    h1 {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    h1 {
+        font-size: 1rem;
     }
 }

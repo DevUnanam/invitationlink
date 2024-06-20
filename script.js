@@ -1,5 +1,34 @@
-// user is prompted to close the tab
-document.getElementById('not-interested').addEventListener('click', function() {
+// Typewriter effect for the invitation text
+document.addEventListener('DOMContentLoaded', () => {
+    const textElement = document.getElementById('invitation-text');
+    const text = textElement.textContent;
+    textElement.textContent = '';
+    let index = 0;
+
+    function typeWriter() {
+        if (index < text.length) {
+            textElement.textContent += text.charAt(index);
+            index++;
+            setTimeout(typeWriter, 100); // Adjust speed here
+        }
+    }
+    
+    typeWriter();
+});
+
+// Function to replace button with an image and text
+function replaceButtonWithImage(button, imageSrc, message) {
+    button.innerHTML = `<img src="${imageSrc}" alt="Image" style="max-width: 100px; display: block; margin: 0 auto;"><p>${message}</p>`;
+}
+
+// Store original button content
+const notInterestedButton = document.getElementById('not-interested');
+const acceptInvitationButton = document.getElementById('accept-invitation');
+const originalNotInterestedContent = notInterestedButton.innerHTML;
+const originalAcceptInvitationContent = acceptInvitationButton.innerHTML;
+
+// Event listeners for 'not-interested' button
+notInterestedButton.addEventListener('click', function() {
     if (window.opener) {
         window.close();
     } else {
@@ -7,24 +36,36 @@ document.getElementById('not-interested').addEventListener('click', function() {
     }
 });
 
-// user gets redirected to the WhatsApp group
-document.getElementById('accept-invitation').addEventListener('click', function() {
-    window.location.href = 'https://chat.whatsapp.com/I18hDa06Muv9MSKPlehHUx';
+notInterestedButton.addEventListener('mouseover', function() {
+    replaceButtonWithImage(this, 'sadfairy.png', 'Awwww, I understand. You may close this tab now');
 });
 
-// Change button content on click
-document.getElementById('not-interested').addEventListener('mousedown', function() {
-    this.innerHTML = "😢";
+notInterestedButton.addEventListener('mousedown', function() {
+    replaceButtonWithImage(this, 'sadfairy.png', 'Awwww, I understand. You may close this tab now');
 });
 
-document.getElementById('not-interested').addEventListener('mouseup', function() {
-    this.innerHTML = "Tap here if not interested";
+notInterestedButton.addEventListener('mouseleave', function() {
+    this.innerHTML = originalNotInterestedContent;
 });
 
-document.getElementById('accept-invitation').addEventListener('mousedown', function() {
-    this.innerHTML = "😊";
+// Event listeners for 'accept-invitation' button
+
+acceptInvitationButton.addEventListener('mouseover', function() {
+    replaceButtonWithImage(this, 'happyfairy.png', '😊');
 });
 
-document.getElementById('accept-invitation').addEventListener('mouseup', function() {
-    this.innerHTML = "Tap here if you accept my invitation";
+acceptInvitationButton.addEventListener('mousedown', function() {
+    replaceButtonWithImage(this, 'happyfairy.png', '😊');
+});
+
+acceptInvitationButton.addEventListener('mouseleave', function() {
+    this.innerHTML = originalAcceptInvitationContent;
+});
+
+acceptInvitationButton.addEventListener('click', function() {
+    // Display confetti
+    confetti();
+    setTimeout(function() {
+        window.location.href = 'https://chat.whatsapp.com/I18hDa06Muv9MSKPlehHUx';
+    }, 2000); // Delay to show the confetti before redirect
 });
